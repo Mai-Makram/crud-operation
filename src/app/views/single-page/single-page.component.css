@@ -1,0 +1,27 @@
+.profile{
+    position: relative;
+    top: 100px;
+}
+.data{
+    position: relative;
+    bottom: 80px;
+    font-size: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.stylee{
+    background-color: rgb(240, 247, 247);
+    /*border: 5px solid aqua;*/
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 430px;
+    box-shadow: 5px 5px 10px  rgb(81, 80, 80) , -5px 0 10px  rgb(81, 80, 80);
+}
+
+img{
+    width: 200px;
+    position: relative;
+    bottom:100px ;
+}

@@ -1,0 +1,41 @@
+.divTable{
+    margin-left: auto;
+   margin-right: auto;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 60px;
+    font-size: 20px;
+    width: 300px; 
+}
+
+th{
+    font-size: 20px;
+}
+
+tbody{
+    border: px solid #050606;
+    text-align: center;
+}
+
+thead{
+   /* background-color: rgb(178, 234, 234);*/
+    text-align: center;
+}
+
+ #btnView{
+   background-color: red
+}
+
+.btnVDU{
+    width: 90px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+#BtnAdd{
+    
+    font-size: 15px;
+}

@@ -1,0 +1,56 @@
+
+<!--Reactive Form-->
+<div class="container">
+  <h1 class="text-center">Edit User</h1>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
+        <div class="mb-3">
+            <label for="idNum" class="form-label">ID</label>
+            <input type="number" class="form-control" id="idNum" formControlName ="empId" name="empId" [(ngModel)]="user.empId">
+          </div>
+
+        <div class="mb-3">
+          <label for="empName" class="form-label"> Name</label>
+           <!-- Error Messages -->
+          <div class="text-danger" *ngIf="myValues['empName'].invalid && myValues['empName'].touched" >
+            <small *ngIf="myValues['empName'].errors?.['required']">*required</small>
+            <small *ngIf="myValues['empName'].errors?.['minlength']">*minlength is {{myValues['empName'].errors?.['minlength'].requiredLength}}--- you have actual length {{myValues['empName'].errors?.['minlength'].actualLength}} </small>
+          </div>
+           <!-- Error Messages -->
+          <input type="text" class="form-control" id="empName" formControlName ="empName" name="empName" [(ngModel)]="user.empName">
+        </div>
+        
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+             <!-- Error Messages -->
+            <div class="text-danger" *ngIf="myValues['empEmail'].invalid && myValues['empEmail'].touched" >
+              <small *ngIf="myValues['empEmail'].errors?.['required']">*required</small>
+              <small *ngIf="myValues['empEmail'].errors?.['email']">*PLZ enter valid email </small>
+            </div>
+             <!-- Error Messages -->
+            <input type="email" class="form-control" id="email" formControlName ="empEmail" aria-describedby="emailHelp" name="empEmail" [(ngModel)]="user.empEmail">
+          </div>
+
+          <div class="mb-3">
+            <label for="empAddress" class="form-label"> Address</label>
+             <!-- Error Messages -->
+            <div class="text-danger" *ngIf="myValues['empAddress'].invalid && myValues['empAddress'].touched" >
+              <small *ngIf="myValues['empAddress'].errors?.['required']">*required</small>
+            </div>
+             <!-- Error Messages -->
+            <input type="text" class="form-control" id="empAddress" formControlName ="empAddress" name="empAddress" [(ngModel)]="user.empAddress">
+          </div>
+
+          <div class="mb-3">
+            <label for="phoneNum" class="form-label">Phone</label>
+             <!-- Error Messages -->
+            <div class="text-danger" *ngIf="myValues['empPhone'].invalid && myValues['empPhone'].touched" >
+              <small *ngIf="myValues['empPhone'].errors?.['required']">*required</small>
+              <small *ngIf="myValues['empPhone'].errors?.['pattern']">*your phone must be 11 digit & start with 010 or 011 or 012 </small>
+            </div>
+             <!-- Error Messages -->
+            <input type="text" class="form-control" pattern="^(01)(0|1|2)\d{8}$" id="phoneNum"  formControlName ="empPhone" name="empPhone" [(ngModel)]="user.empPhone">
+          </div>
+
+        <button type="submit" class="btn btn-primary"  [disabled]="contactForm.invalid">Save</button>
+      </form>
+</div>

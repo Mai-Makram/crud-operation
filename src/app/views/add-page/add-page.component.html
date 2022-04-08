@@ -1,0 +1,95 @@
+
+<!--Reactive Form-->
+<div class="container">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
+        <div class="mb-3">
+          <label for="empName" class="form-label"> Name</label>
+          <div class="text-danger" *ngIf="myValues['empName'].invalid && myValues['empName'].touched" >
+            <small *ngIf="myValues['empName'].errors?.['required']">*required</small>
+            <small *ngIf="myValues['empName'].errors?.['minlength']">*minlength is {{myValues['empName'].errors?.['minlength'].requiredLength}}--- you have actual length {{myValues['empName'].errors?.['minlength'].actualLength}} </small>
+          </div>
+          <input type="text" class="form-control" id="empName" formControlName ="empName" name="empName" value="yy">
+        </div>
+        
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <!-- Error Messages -->
+          <div class="text-danger" *ngIf="myValues['empEmail'].invalid && myValues['empEmail'].touched" >
+              <small *ngIf="myValues['empEmail'].errors?.['required']">*required</small>
+              <small *ngIf="myValues['empEmail'].errors?.['email']">*PLZ enter valid email </small>
+          </div>
+          <!-- Error Messages -->
+            <input type="email" class="form-control" id="email" formControlName ="empEmail" aria-describedby="emailHelp" name="empEmail">
+          </div>
+
+          <div class="mb-3">
+            <label for="empAddress" class="form-label"> address</label>
+            <!-- Error Messages -->
+            <div class="text-danger" *ngIf="myValues['empAddress'].invalid && myValues['empAddress'].touched" >
+              <small *ngIf="myValues['empAddress'].errors?.['required']">*required</small>
+            </div>
+            <!-- Error Messages -->
+            <input type="text" class="form-control" id="empAddress" formControlName ="empAddress" name="empAddress" value="yy">
+          </div>
+
+          <div class="mb-3">
+            <label for="phoneNum" class="form-label">Phone</label>
+            <!-- Error Messages -->
+            <div class="text-danger" *ngIf="myValues['empPhone'].invalid && myValues['empPhone'].touched" >
+              <small *ngIf="myValues['empPhone'].errors?.['required']">*required</small>
+              <small *ngIf="myValues['empPhone'].errors?.['pattern']">*your phone must be 11 digit & start with 010 or 011 or 012 </small>
+            </div>
+            <!-- Error Messages -->
+            <input type="text" pattern="^(01)(0|1|2)\d{8}$" class="form-control" id="phoneNum"  formControlName ="empPhone" name="empPhone">
+          </div>
+          <hr>
+        <button type="submit" class="btn btn-primary"  [disabled]="contactForm.invalid" >ADD</button>
+      </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container" [style.display]="displayStyle">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)" >
+        <div class="mb-3">
+            <label for="idNum" class="form-label">ID</label>
+            <input type="number" class="form-control" id="idNum" required name="empId" ngModel>
+          </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required name="empName" ngModel>
+          </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required name="empEmail" ngModel>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Address</label>
+          <input type="text" class="form-control" id="email" required name="empAddress" ngModel>
+        </div>
+
+        <div class="mb-3">
+            <label for="phoneNum" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phoneNum" required name="empPhone" ngModel>
+          </div>
+          
+            <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" (click)="closePopup()" >ADD</button>
+          
+
+      </form>
+</div>-->

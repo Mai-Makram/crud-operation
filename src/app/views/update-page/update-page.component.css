@@ -1,0 +1,23 @@
+/*style for  Error Messages  */
+.form-control.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+/*style for  Error Messages  */
+
+.container{
+    width: 500px;
+    border: 1px solid rgb(124, 122, 122);
+    padding: 0;
+    box-shadow: 5px 5px 10px  rgb(81, 80, 80) , -5px 0 10px  rgb(81, 80, 80);
+
+}
+h1{
+    background-color: rgb(16, 180, 180);
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+form{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}

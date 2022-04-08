@@ -1,0 +1,6 @@
+/*style for  Error Messages  */
+
+.form-control.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+/*style for  Error Messages  */
