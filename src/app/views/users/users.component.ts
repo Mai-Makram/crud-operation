@@ -6,6 +6,7 @@ import { Users } from 'src/app/user-interface';
 import { ViewChild} from '@angular/core';
 import {ModalDirective} from 'angular-bootstrap-md';
 
+
 //-- used in pagination --
 //import { Subject } from 'rxjs';
 
@@ -24,9 +25,10 @@ export class UsersComponent implements OnInit , AfterViewInit {
     @ViewChild(ModalDirective) modal!: ModalDirective;
    //-- to make pagination and sorting --
   users:Users[]=[]
+  //--variable to make notification --
+  notificationDelete:number = 0
 
   constructor(private userservies:UsersService) { }
- 
 
   getUsers(){
     this.userservies.getUser().subscribe({
@@ -45,6 +47,8 @@ export class UsersComponent implements OnInit , AfterViewInit {
     this.userservies.deleteusers(id).subscribe({
       next:(res:any)=>{
         this.users.splice(i,1)
+        //--to make notification --
+        this.notificationDelete ++  
         console.log(res)
       },
       error:(err:any)=>{
@@ -59,6 +63,7 @@ export class UsersComponent implements OnInit , AfterViewInit {
     this.checked = true
   }
 
+ 
  
 
   ngOnInit(): void {

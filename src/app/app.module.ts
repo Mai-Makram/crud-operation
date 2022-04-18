@@ -23,7 +23,8 @@ import { DataTablesModule } from "angular-datatables";
     SinglePageComponent,
     AddPageComponent,
     UpdatePageComponent,
-    SearchFilterPipe,
+    SearchFilterPipe
+    
     
   ],
   imports: [

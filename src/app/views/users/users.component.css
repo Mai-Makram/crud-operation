@@ -9,33 +9,39 @@ table{
     padding: 60px;
     font-size: 20px;
     width: 300px; 
+    border: 1px solid red;
 }
-
-th{
-    font-size: 20px;
-}
-
-tbody{
-    border: px solid #050606;
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
     text-align: center;
-}
+  }
 
-thead{
-   /* background-color: rgb(178, 234, 234);*/
-    text-align: center;
-}
-
- #btnView{
-   background-color: red
-}
-
-.btnVDU{
-    width: 90px;
-    padding: 10px;
-    font-size: 15px;
-}
-
-#BtnAdd{
+thead {
+    background-color: rgb(178, 234, 234);
     
-    font-size: 15px;
+}
+img{
+    width: 50px;
+}
+.notificationDiv{
+    position: absolute;
+    right: 40px;
+    top: 90px;
+}
+.notificationDiv p {
+    background-color: #F93154;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    position: absolute;
+    bottom: 10px;
+    right: 25px;
+}
+.divAddAndNotifiction{
+    display: flex;
 }

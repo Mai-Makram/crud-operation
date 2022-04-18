@@ -1,6 +1,13 @@
 /*style for  Error Messages  */
-
-.form-control.ng-invalid.ng-touched{
+.controlStyle.ng-invalid.ng-touched{
     border: 2px solid red;
+}
+small{
+    color: red;
+}
+input{
+    height: 40px;
+    width: 100%;
+    border: 1px solid rgb(137, 225, 229);
 }
 /*style for  Error Messages  */

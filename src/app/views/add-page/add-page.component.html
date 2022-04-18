@@ -1,51 +1,113 @@
+<!--Btn Add to open popup modal (form add user)-->
+<a type="button" id="BtnAdd" mdbBtn color="info" class="waves-effect mb-4 btnVDU" (click)="frame.show()" mdbWavesEffect>
+  Add new User
+</a>
+<!--Btn Add to open popup modal (form add user)-->
 
-<!--Reactive Form-->
-<div class="container">
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
-        <div class="mb-3">
-          <label for="empName" class="form-label"> Name</label>
-          <div class="text-danger" *ngIf="myValues['empName'].invalid && myValues['empName'].touched" >
-            <small *ngIf="myValues['empName'].errors?.['required']">*required</small>
-            <small *ngIf="myValues['empName'].errors?.['minlength']">*minlength is {{myValues['empName'].errors?.['minlength'].requiredLength}}--- you have actual length {{myValues['empName'].errors?.['minlength'].actualLength}} </small>
-          </div>
-          <input type="text" class="form-control" id="empName" formControlName ="empName" name="empName" value="yy">
+<!--Modal add-->
+<div 
+mdbModal
+#frame="mdbModal"
+class="modal fade top"
+id="frameModalTop"
+tabindex="-1"
+role="dialog"
+aria-labelledby="myModalLabel"
+aria-hidden="true"
+style="overflow-y: auto"
+>
+<!--Dialog-->
+<div class="modal-dialog modal-notify modal-info" role="document">
+  <!--Content-->
+  <div class="modal-content">
+    <!--Header-->
+    <div class="modal-header text-center">
+      <h4 class="modal-title white-text w-100 font-weight-bold py-2">
+        Add Employee
+      </h4>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+        (click)="frame.hide()"
+      >
+        <span aria-hidden="true" class="white-text">&times;</span>
+      </button>
+    </div>
+    <!--Body-->
+    <div class="modal-body">
+
+      <!--Reactive Form-->
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
+      <div >
+        <label for="empName" > Name</label>
+        <div  *ngIf="myValues['empName'].invalid && myValues['empName'].touched" >
+          <small *ngIf="myValues['empName'].errors?.['required']">*required</small>
+          <small *ngIf="myValues['empName'].errors?.['minlength']">*minlength is {{myValues['empName'].errors?.['minlength'].requiredLength}}--- you have actual length {{myValues['empName'].errors?.['minlength'].actualLength}} </small>
         </div>
         
+        <input type="text" class="controlStyle"  id="empName" formControlName ="empName" name="empName" value="yy">
+      </div>
+      
+      <div>
+        <label for="email">Email</label>
+        <!-- Error Messages -->
+        <div *ngIf="myValues['empEmail'].invalid && myValues['empEmail'].touched" >
+            <small *ngIf="myValues['empEmail'].errors?.['required']">*required</small>
+            <small *ngIf="myValues['empEmail'].errors?.['email']">*PLZ enter valid email </small>
+        </div>
+        
+        <!-- Error Messages -->
+          <input type="email" class="controlStyle" id="email" formControlName ="empEmail" name="empEmail">
+        </div>
+
+        <div>
+          <label for="empAddress"> address</label>
+          <!-- Error Messages -->
+          <div  *ngIf="myValues['empAddress'].invalid && myValues['empAddress'].touched" >
+            <small *ngIf="myValues['empAddress'].errors?.['required']">*required</small>
+          </div>
+          
+          <!-- Error Messages -->
+          <input type="text" class="controlStyle" id="empAddress" formControlName ="empAddress" name="empAddress" value="yy">
+        </div>
+
         <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
+          <label for="phoneNum" >Phone</label>
           <!-- Error Messages -->
-          <div class="text-danger" *ngIf="myValues['empEmail'].invalid && myValues['empEmail'].touched" >
-              <small *ngIf="myValues['empEmail'].errors?.['required']">*required</small>
-              <small *ngIf="myValues['empEmail'].errors?.['email']">*PLZ enter valid email </small>
+          <div *ngIf="myValues['empPhone'].invalid && myValues['empPhone'].touched" >
+            <small *ngIf="myValues['empPhone'].errors?.['required']">*required</small>
+            <small *ngIf="myValues['empPhone'].errors?.['pattern']">*your phone must be 11 digit & start with 010 or 011 or 012 </small>
           </div>
+          
           <!-- Error Messages -->
-            <input type="email" class="form-control" id="email" formControlName ="empEmail" aria-describedby="emailHelp" name="empEmail">
-          </div>
+          <input type="text" class="controlStyle" pattern="^(01)(0|1|2)\d{8}$"  id="phoneNum"  formControlName ="empPhone" name="empPhone">
+        </div>
+        <hr>
+      <button type="submit" id="btnAdd" color="info" mdbBtn  [disabled]="contactForm.invalid" >ADD</button>
+    </form>
 
-          <div class="mb-3">
-            <label for="empAddress" class="form-label"> address</label>
-            <!-- Error Messages -->
-            <div class="text-danger" *ngIf="myValues['empAddress'].invalid && myValues['empAddress'].touched" >
-              <small *ngIf="myValues['empAddress'].errors?.['required']">*required</small>
-            </div>
-            <!-- Error Messages -->
-            <input type="text" class="form-control" id="empAddress" formControlName ="empAddress" name="empAddress" value="yy">
-          </div>
+<!--Reactive Form-->
 
-          <div class="mb-3">
-            <label for="phoneNum" class="form-label">Phone</label>
-            <!-- Error Messages -->
-            <div class="text-danger" *ngIf="myValues['empPhone'].invalid && myValues['empPhone'].touched" >
-              <small *ngIf="myValues['empPhone'].errors?.['required']">*required</small>
-              <small *ngIf="myValues['empPhone'].errors?.['pattern']">*your phone must be 11 digit & start with 010 or 011 or 012 </small>
-            </div>
-            <!-- Error Messages -->
-            <input type="text" pattern="^(01)(0|1|2)\d{8}$" class="form-control" id="phoneNum"  formControlName ="empPhone" name="empPhone">
-          </div>
-          <hr>
-        <button type="submit" class="btn btn-primary"  [disabled]="contactForm.invalid" >ADD</button>
-      </form>
+    </div>
+    <!--/.Body-->
+  </div>
+  <!--/.Content-->
 </div>
+<!--/.Dialog-->
+</div>
+<!--/.Modal add-->
+
+
+
+
+
+
+
+
+
 
 
 
@@ -93,3 +155,55 @@
 
       </form>
 </div>-->
+
+
+
+
+<!--Reactive Form-->
+<!--<div class="container">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
+      <div class="mb-3">
+        <label for="empName" class="form-label"> Name</label>
+        <div class="text-danger" *ngIf="myValues['empName'].invalid && myValues['empName'].touched" >
+          <small *ngIf="myValues['empName'].errors?.['required']">*required</small>
+          <small *ngIf="myValues['empName'].errors?.['minlength']">*minlength is {{myValues['empName'].errors?.['minlength'].requiredLength}}--- you have actual length {{myValues['empName'].errors?.['minlength'].actualLength}} </small>
+        </div>
+        <input type="text" class="form-control" id="empName" formControlName ="empName" name="empName" value="yy">
+      </div>
+      
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <!-- Error Messages -->
+        <div class="text-danger" *ngIf="myValues['empEmail'].invalid && myValues['empEmail'].touched" >
+            <small *ngIf="myValues['empEmail'].errors?.['required']">*required</small>
+            <small *ngIf="myValues['empEmail'].errors?.['email']">*PLZ enter valid email </small>
+        </div>
+        <!-- Error Messages -->
+          <!--<input type="email" class="form-control" id="email" formControlName ="empEmail" aria-describedby="emailHelp" name="empEmail">
+        </div>
+
+        <div class="mb-3">
+          <label for="empAddress" class="form-label"> address</label>
+          <!-- Error Messages -->
+          <!--<div class="text-danger" *ngIf="myValues['empAddress'].invalid && myValues['empAddress'].touched" >
+            <small *ngIf="myValues['empAddress'].errors?.['required']">*required</small>
+          </div>
+          <!-- Error Messages -->
+          <!--<input type="text" class="form-control" id="empAddress" formControlName ="empAddress" name="empAddress" value="yy">
+        </div>
+
+        <div class="mb-3">
+          <label for="phoneNum" class="form-label">Phone</label>
+          <!-- Error Messages -->
+          <!--<div class="text-danger" *ngIf="myValues['empPhone'].invalid && myValues['empPhone'].touched" >
+            <small *ngIf="myValues['empPhone'].errors?.['required']">*required</small>
+            <small *ngIf="myValues['empPhone'].errors?.['pattern']">*your phone must be 11 digit & start with 010 or 011 or 012 </small>
+          </div>-->
+          <!-- Error Messages -->
+         <!-- <input type="text" pattern="^(01)(0|1|2)\d{8}$" class="form-control" id="phoneNum"  formControlName ="empPhone" name="empPhone">
+        </div>
+        <hr>
+      <button type="submit" class="btn btn-primary"  [disabled]="contactForm.invalid" >ADD</button>
+    </form>
+</div>-->
+<!--Reactive Form-->

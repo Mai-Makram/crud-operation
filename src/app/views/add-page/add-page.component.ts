@@ -3,6 +3,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/servies/users.service';
 import { Users } from 'src/app/user-interface';
+//popup
+import { ViewChild} from '@angular/core';
+import {ModalDirective} from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-add-page',

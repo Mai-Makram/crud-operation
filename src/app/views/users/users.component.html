@@ -1,67 +1,31 @@
 <div class="divTable">
-  <!--Btn Add to open popup modal (form add user)-->
-  <a type="button" id="BtnAdd"  color="info" class="btn btn-primary waves-effect mb-4" (click)="frame.show()" mdbWavesEffect>
-    Add new User
-  </a>
-  <!--Btn Add to open popup modal (form add user)-->
+  <div class="divAddAndNotifiction">
+    <!--BTN add and modal to make popUp-->
+    <app-add-page></app-add-page>
+    <!--BTN add and modal to make popUp-->
 
-  <!--Modal add-->
-<div 
-mdbModal
-#frame="mdbModal"
-class="modal fade top"
-id="frameModalTop"
-tabindex="-1"
-role="dialog"
-aria-labelledby="myModalLabel"
-aria-hidden="true"
-style="overflow-y: auto"
->
-<!--Dialog-->
-<div class="modal-dialog modal-notify modal-info" role="document">
-  <!--Content-->
-  <div class="modal-content">
-    <!--Header-->
-    <div class="modal-header text-center">
-      <h4 class="modal-title white-text w-100 font-weight-bold py-2">
-        Add Employee
-      </h4>
-      <button
-        type="button"
-        class="close"
-        data-dismiss="modal"
-        aria-label="Close"
-        (click)="frame.hide()"
-      >
-        <span aria-hidden="true" class="white-text">&times;</span>
-      </button>
+    <!--Notification-->
+    <div class="notificationDiv">
+      <img  src="../assets/images/3.png">
+      <p >{{notificationDelete}}</p>
     </div>
-    <!--Body-->
-    <div class="modal-body">
-      <app-add-page></app-add-page>
-    </div>
-    <!--/.Body-->
+    <!--Notification-->
   </div>
-  <!--/.Content-->
-</div>
-<!--/.Dialog-->
-</div>
-<!--/.Modal add-->
 
-<table class="table" >
+<table >
     <thead>
       <tr>
         <th>
           <!--Btn Check All-->
-          <input type="checkbox" class="form-check-input" id="check"  [(ngModel)]="checked">
+          <input type="checkbox"  id="check"  [(ngModel)]="checked">
           <!--Btn Check All-->
         </th>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Address</th>
-        <th scope="col">Phone</th>
-        <th scope="col" colspan="3">actions</th>
+        <th >ID</th>
+        <th >Name</th>
+        <th >Email</th>
+        <th >Address</th>
+        <th >Phone</th>
+        <th  colspan="3">actions</th>
       </tr>
     </thead>
     <tbody>
@@ -70,11 +34,11 @@ style="overflow-y: auto"
         <td>
           <!--to do Check All-->      
             <div *ngIf="checked ; else elseBlock">
-              <input type="checkbox" class="form-check-input" id="check" [(ngModel)]="checked">
+              <input type="checkbox"  id="check" [(ngModel)]="checked">
             </div>
             
             <ng-template #elseBlock>
-              <input type="checkbox" class="form-check-input" id="check" [(ngModel)]="checked">
+              <input type="checkbox"  id="checkh" [(ngModel)]="checked">
             </ng-template>
             <!--to do Check All-->
         </td>
@@ -87,17 +51,16 @@ style="overflow-y: auto"
         <td>
           <!--Btn View-->
             <a routerLink="/users/{{user.empId}}">
-                <button type="button" class="btn btn-primary btnVDU" id="btnView">view</button>
+                <button type="button" mdbBtn color="info" class="waves-effect mb-4 btnVDU">view</button>
             </a>
           <!--Btn View-->
         </td>
         <td>
-
            <!--BTN Delete to Open modal delete-->
            <a
             type="button"
             mdbBtn
-            color="info"
+            color="danger"
             class="waves-effect mb-4 btnVDU"
             (click)="frameDelete.show()"
             mdbWavesEffect
@@ -139,7 +102,7 @@ style="overflow-y: auto"
               <!--Body-->
               <div class="modal-body">
                 Are you sure delete this
-              </div>
+            </div>
               <!--/.Body-->
               <!--Footer-->
               <div class="modal-footer justify-content-center">
@@ -164,76 +127,9 @@ style="overflow-y: auto"
       <td>
         <!--Btn Update-->
         <a routerLink="/users/updatePage/{{user.empId}}">
-          <button type="button" class="btn btn-primary btnVDU">Update</button>
+          <button type="button"  mdbBtn color="info" class="waves-effect mb-4 btnVDU">Update</button>
         </a>
         <!--Btn Update-->
-
-        <!--<a
-            type="button"
-            mdbBtn
-            color="info"
-            class="waves-effect mb-4"
-            (click)="frameUpdae.show()"
-            mdbWavesEffect
-            
-            >edit
-          </a>-->
-        <!--/.Modal update-->
-        <!--<div 
-        mdbModal
-        #frameUpdate="mdbModal"
-        class="modal fade top"
-        id="frameModalTop"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="myModalLabel"
-        aria-hidden="true"
-        style="overflow-y: auto"
-        >-->
-        <!--Dialog-->
-        <!--<div class="modal-dialog modal-notify modal-info" role="document">-->
-          <!--Content-->
-          <!--<div class="modal-content">-->
-            <!--Header-->
-            <!--<div class="modal-header text-center">
-              <h4 class="modal-title white-text w-100 font-weight-bold py-2">
-                update Employee
-              </h4>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-                (click)="frameUpdate.hide()"
-              >
-                <span aria-hidden="true" class="white-text">&times;</span>
-              </button>
-            </div>-->
-            <!--Body-->
-            <!--<div class="modal-body">
-              <app-update-page></app-update-page>
-            </div>-->
-            <!--/.Body-->
-            <!--Footer-->
-            <!--<div class="modal-footer justify-content-center">
-              <button
-                type="button"
-                mdbBtn
-                color="info"
-                class="waves-effect"
-                mdbWavesEffect
-                
-              >
-                update
-              </button>
-            </div>
-          </div>-->
-          <!--/.Content-->
-        <!--</div>-->
-        <!--/.Dialog-->
-        <!--</div>-->
-        <!--/.Modal update-->
-      
     </td>
       </tr>
     </tbody>

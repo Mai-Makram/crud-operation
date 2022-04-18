@@ -1,5 +1,5 @@
 /*style for  Error Messages  */
-.form-control.ng-invalid.ng-touched{
+.controlStyle.ng-invalid.ng-touched{
     border: 2px solid red;
 }
 /*style for  Error Messages  */
@@ -12,12 +12,22 @@
 
 }
 h1{
-    background-color: rgb(16, 180, 180);
+    background-color: #33b5e5;
     padding-top: 10px;
     padding-bottom: 20px;
+    text-align: center;
 }
 form{
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
+}
+
+small{
+    color: red;
+}
+input{
+    height: 40px;
+    width: 100%;
+    border: 1px solid rgb(137, 225, 229);
 }
